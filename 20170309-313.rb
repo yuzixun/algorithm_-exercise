@@ -9,28 +9,35 @@
 # (4) The nth super ugly number is guaranteed to fit in a 32-bit signed integer.
 #
 
+# author: yuzixun
 # @param {Integer} n
 # @param {Integer[]} primes
 # @return {Integer}
-
 def nth_super_ugly_number(n, primes)
   return 1 if n == 1
 
+  primes_length = primes.size
   result = [1]
-  points = [0]*primes.size
+  points = [0]*primes_length
 
   while result.size < n
     _temp_result = []
-    primes.each_with_index do |prime, index|
-      _temp_result.push(result[points[index]] * prime)
+
+    index = 0
+    while index < primes_length
+      _temp_result.push(result[points[index]] * primes[index])
+      index += 1
     end
 
     will_add_value = _temp_result.min
     result.push(will_add_value)
 
-    points.each_with_index do |prime, index|
+    index = 0
+    while index < primes_length
       points[index] += 1 if will_add_value == _temp_result[index]
+      index += 1
     end
+
   end
 
   result.last
