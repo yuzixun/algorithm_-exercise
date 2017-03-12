@@ -46,7 +46,7 @@ def smallest_good_base(n)
   m = Math.log(n, 2).to_i
 
   while m > 1
-    k = (n**(m**-1)).to_i
+    k = (n**(1.0/m)).to_i
 
     return k.to_s if (k**(m+1)-1)/(k-1) == n
 
