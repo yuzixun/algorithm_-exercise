@@ -20,22 +20,18 @@
 # @param {Integer[]} heaters
 # @return {Integer}
 def find_radius(houses, heaters)
-  max = 2**62 - 1
   radius = 0
-  _temp = 0
+  heater_point = 0
 
   houses.sort!
-  heaters.push(max).sort!
+  heaters.sort!
 
   houses.each do |house|
-    while house >= (heaters[_temp.._temp+1].reduce(:+).to_f/2)
-      _temp += 1
+    while (heater_point < (heaters.count-1)) && ((house - heaters[heater_point]).abs >= (house - heaters[heater_point+1]).abs)
+      heater_point += 1
     end
-
-    radius = [radius, (heaters[_temp] - house).abs].max
+    radius = [radius, (house - heaters[heater_point]).abs].max
   end
 
   radius
 end
-
-puts find_radius([1,2,3], [2])
