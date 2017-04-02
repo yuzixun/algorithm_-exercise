@@ -31,20 +31,11 @@ def merge(nums1, nums2)
 end
 
 def max_number(nums1, nums2, k)
-  size_nums1 = nums1.size
-  size_nums2 = nums2.size
-
-  nums1_min = [0, k-size_nums2].max
-  nums1_max = [k, size_nums1].min
-
-  result = []
-  for i in (nums1_min.. nums1_max)
-    temp = merge(get_max_from(nums1, i), get_max_from(nums2, k-i))
-
-    result = [temp, result].max
-  end
-
-  result
+  begin
+    ([0, k-nums2.size].max..[k, nums1.size].min).map do |i|
+      merge(get_max_from(nums1, i), get_max_from(nums2, k-i))
+    end
+  end.max
 end
 
 
