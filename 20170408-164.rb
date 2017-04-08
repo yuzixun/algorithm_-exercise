@@ -11,13 +11,13 @@ def maximum_gap(nums)
   min_gaps = [nil]*(nums.size-1)
   max_gaps = [nil]*(nums.size-1)
 
-  for i in (0..nums.size-1)
-    next if nums[i] == min || nums[i] == max
+  nums.each do |num|
+    next if num == min || num == max
 
-    index = (nums[i] - min)/gap
+    index = (num - min)/gap
 
-    min_gaps[index] = min_gaps[index].nil? ? nums[i] : [nums[i], min_gaps[index]].min
-    max_gaps[index] = max_gaps[index].nil? ? nums[i] : [nums[i], max_gaps[index]].max
+    min_gaps[index] = min_gaps[index].nil? ? num : [num, min_gaps[index]].min
+    max_gaps[index] = max_gaps[index].nil? ? num : [num, max_gaps[index]].max
   end
 
   max_gap = 0; previous = min
