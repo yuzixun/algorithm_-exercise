@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -20,24 +18,24 @@ func reverseList(head *ListNode) *ListNode {
 	return newHead
 }
 
-func main() {
-	var currentNode *ListNode = nil
-	for index := 0; index < 4; index++ {
-		currentNode = &ListNode{Val: index, Next: currentNode}
-		// fmt.Println(currentNode.Val)
-	}
+// func main() {
+// 	var currentNode *ListNode = nil
+// 	for index := 0; index < 4; index++ {
+// 		currentNode = &ListNode{Val: index, Next: currentNode}
+// 		// fmt.Println(currentNode.Val)
+// 	}
 
-	loopNode := currentNode
-	for loopNode.Next != nil {
-		// fmt.Println(loopNode.Val)
-		loopNode = loopNode.Next
-	}
+// 	loopNode := currentNode
+// 	for loopNode.Next != nil {
+// 		// fmt.Println(loopNode.Val)
+// 		loopNode = loopNode.Next
+// 	}
 
-	currentNode = reverseList(currentNode)
+// 	currentNode = reverseList(currentNode)
 
-	loopNode = currentNode
-	for loopNode.Next != nil {
-		fmt.Println(loopNode.Val)
-		loopNode = loopNode.Next
-	}
-}
+// 	loopNode = currentNode
+// 	for loopNode.Next != nil {
+// 		fmt.Println(loopNode.Val)
+// 		loopNode = loopNode.Next
+// 	}
+// }
