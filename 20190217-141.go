@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // type ListNode struct {
 // 	Val  int
 // 	Next *ListNode
@@ -22,10 +20,10 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 
-func main() {
-	var currentNode *ListNode = nil
-	for index := 0; index < 4; index++ {
-		currentNode = &ListNode{Val: index, Next: currentNode}
-	}
-	fmt.Println(hasCycle(currentNode))
-}
+// func main() {
+// 	var currentNode *ListNode = nil
+// 	for index := 0; index < 4; index++ {
+// 		currentNode = &ListNode{Val: index, Next: currentNode}
+// 	}
+// 	fmt.Println(hasCycle(currentNode))
+// }
