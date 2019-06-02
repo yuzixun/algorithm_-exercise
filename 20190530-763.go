@@ -23,6 +23,6 @@ func partitionLabels(S string) []int {
 	return result
 }
 
-func main() {
-	partitionLabels("ababcbacadefegdehijhklij")
-}
+// func main() {
+// 	partitionLabels("ababcbacadefegdehijhklij")
+// }
