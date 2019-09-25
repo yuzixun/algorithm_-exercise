@@ -1,13 +1,20 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"testing"
 )
 
-func TestInsertionSort(t *testing.T) {
-	list := randList()
-	InsertionSort(&list)
+func randList() []int {
+	var randList []int
+
+	// rand.Seed(time.Now().UnixNano())
+	for index := 0; index < 1000; index++ {
+		randList = append(randList, rand.Intn(10000))
+	}
+
+	return randList
 }
 
 func BenchmarkInsertionSort(b *testing.B) {
@@ -30,14 +37,36 @@ func InsertionSort(list *[]int) {
 	}
 }
 
-func randList() []int {
-	var randList []int
+func BenchmarkBubbleSort(b *testing.B) {
+	b.StopTimer()
+	list := randList()
+	b.StartTimer()
+	BubbleSort(&list)
+}
 
-	// rand.Seed(time.Now().UnixNano())
+func TestBubbleSort(t *testing.T) {
+	// list := randList()
+	// BubbleSort(&list)
+}
 
-	for index := 0; index < 100000; index++ {
-		randList = append(randList, rand.Intn(10000))
+func BubbleSort(list *[]int) {
+	listLen := len(*list)
+	fmt.Println(*list)
+	for i := 0; i < listLen; i++ {
+		for j := i; j < listLen; j++ {
+			if (*list)[j] < (*list)[i] {
+				(*list)[i], (*list)[j] = (*list)[j], (*list)[i]
+			}
+		}
 	}
+	fmt.Println(*list)
+}
 
-	return randList
+func TestSelectionSort(t *testing.T) {
+	list := randList()
+	SelectionSort(&list)
+}
+
+func SelectionSort(list *[]int) {
+
 }
