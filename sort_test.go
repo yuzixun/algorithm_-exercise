@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"testing"
 )
@@ -67,6 +68,51 @@ func TestSelectionSort(t *testing.T) {
 	SelectionSort(&list)
 }
 
-func SelectionSort(list *[]int) {
+func BenchmarkSelectionSort(b *testing.B) {
+	b.StopTimer()
+	list := randList()
+	b.StartTimer()
+	SelectionSort(&list)
+}
 
+func SelectionSort(list *[]int) {
+	listLen := len(*list)
+
+	for i := 0; i < listLen; i++ {
+		minIndex := i
+		for j := i + 1; j < listLen; j++ {
+			if (*list)[minIndex] > (*list)[j] {
+				minIndex = j
+			}
+		}
+		(*list)[i], (*list)[minIndex] = (*list)[minIndex], (*list)[i]
+	}
+}
+
+func TestShellSort(t *testing.T) {
+	list := randList()
+	ShellSort(&list)
+}
+
+func BenchmarkShellSort(b *testing.B) {
+	b.StopTimer()
+	list := randList()
+	b.StartTimer()
+	ShellSort(&list)
+}
+
+func ShellSort(list *[]int) {
+	listLen := len(*list)
+
+	for gap := math.Floor(float64(listLen / 2)); gap > 0; gap = math.Floor(gap / 2) {
+		for i := int(gap); i < listLen; i++ {
+			j := i
+			current := (*list)[i]
+			for j-int(gap) >= 0 && current < (*list)[j-int(gap)] {
+				(*list)[j] = (*list)[j-int(gap)]
+				j = j - int(gap)
+			}
+			(*list)[j] = current
+		}
+	}
 }
