@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"math/rand"
 	"testing"
 )
@@ -11,7 +10,7 @@ func randList() []int {
 	var randList []int
 
 	// rand.Seed(time.Now().UnixNano())
-	for index := 0; index < 1000; index++ {
+	for index := 0; index < 100; index++ {
 		randList = append(randList, rand.Intn(10000))
 	}
 
@@ -102,17 +101,72 @@ func BenchmarkShellSort(b *testing.B) {
 }
 
 func ShellSort(list *[]int) {
-	listLen := len(*list)
+	l := *list
+	fmt.Println(l)
+	listLen := len(l)
 
-	for gap := math.Floor(float64(listLen / 2)); gap > 0; gap = math.Floor(gap / 2) {
-		for i := int(gap); i < listLen; i++ {
+	for gap := (listLen / 2); gap > 0; gap /= 2 {
+		for i := gap; i < listLen; i++ {
 			j := i
-			current := (*list)[i]
-			for j-int(gap) >= 0 && current < (*list)[j-int(gap)] {
-				(*list)[j] = (*list)[j-int(gap)]
-				j = j - int(gap)
+			for j-gap >= 0 && l[j] < l[j-gap] {
+				l[j], l[j-gap] = l[j-gap], l[j]
+				j -= gap
 			}
-			(*list)[j] = current
 		}
 	}
+	fmt.Println(l)
+}
+
+func TestMergeSort(t *testing.T) {
+	list := randList()
+	fmt.Println("xxx", MergeSort(list))
+
+}
+
+func MergeSort(arr []int) []int {
+	listLen := len(arr)
+
+	if listLen == 1 {
+		return arr
+	}
+	middle := int(listLen / 2)
+	var left = make([]int, middle)
+	var right = make([]int, listLen-middle)
+
+	for i := 0; i < listLen; i++ {
+		if i < middle {
+			left[i] = arr[i]
+		} else {
+			right[i-middle] = arr[i]
+		}
+	}
+	result := Merge(MergeSort(left), MergeSort(right))
+	return result
+}
+
+func Merge(left []int, right []int) (result []int) {
+	result = make([]int, len(left)+len(right))
+	i := 0
+	for len(left) > 0 && len(right) > 0 {
+		if left[0] < right[0] {
+			result[i] = left[0]
+			left = left[1:]
+		} else {
+			result[i] = right[0]
+			right = right[1:]
+		}
+		i++
+	}
+
+	for j := 0; j < len(left); j++ {
+		result[i] = left[j]
+		i++
+	}
+
+	for j := 0; j < len(right); j++ {
+		result[i] = right[j]
+		i++
+	}
+
+	return result
 }
