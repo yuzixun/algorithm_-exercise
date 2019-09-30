@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -46,13 +45,13 @@ func contains(array *[]int, element int) bool {
 	return false
 }
 
-func main() {
-	// nums := []int{-1, 0, 1, 2, -1, -4}
-	// nums := []int{-1, -1, 0, 1, 2}
-	// nums := []int{0, 0, 0, 0}
-	// nums := []int{-2, 0, 1, 1, 2}
-	nums := []int{-1, -1, 0, 1, 2}
+// func main() {
+// 	// nums := []int{-1, 0, 1, 2, -1, -4}
+// 	// nums := []int{-1, -1, 0, 1, 2}
+// 	// nums := []int{0, 0, 0, 0}
+// 	// nums := []int{-2, 0, 1, 1, 2}
+// 	nums := []int{-1, -1, 0, 1, 2}
 
-	fmt.Println(nums)
-	fmt.Println(threeSum(nums))
-}
+// 	fmt.Println(nums)
+// 	fmt.Println(threeSum(nums))
+// }

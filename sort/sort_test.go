@@ -1,6 +1,7 @@
 package sort
 
 import (
+	"fmt"
 	"math/rand"
 	"testing"
 )
@@ -83,7 +84,13 @@ func randList() []int {
 // 	BucketSort(list)
 // }
 
-func TestRadixSort(t *testing.T) {
-	list := randList()
-	RadixSort(list)
+// func TestRadixSort(t *testing.T) {
+// 	list := randList()
+// 	RadixSort(list)
+// }
+func TestAppend(t *testing.T) {
+	a := 10
+	b := 1.1
+	fmt.Println(float64(a) + b)
+
 }
