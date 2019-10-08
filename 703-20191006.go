@@ -2,7 +2,6 @@ package main
 
 import (
 	"container/heap"
-	"fmt"
 )
 
 // An IntHeap is a min-heap of ints.
@@ -58,16 +57,16 @@ func (this *KthLargest) Add(val int) int {
 	return (*this.h)[0]
 }
 
-func main() {
-	k := 3
-	arr := []int{4, 5, 8, 2}
-	obj := Constructor(k, arr)
-	fmt.Println(obj)
-	for _, i := range arr {
-		param := obj.Add(i)
-		fmt.Println("result is ", param)
-	}
-}
+// func main() {
+// 	k := 3
+// 	arr := []int{4, 5, 8, 2}
+// 	obj := Constructor(k, arr)
+// 	fmt.Println(obj)
+// 	for _, i := range arr {
+// 		param := obj.Add(i)
+// 		fmt.Println("result is ", param)
+// 	}
+// }
 
 /**
  * Your KthLargest object will be instantiated and called as such:
