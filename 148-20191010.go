@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -63,25 +61,25 @@ func merge(l1, l2 *ListNode) *ListNode {
 	return c.Next
 }
 
-func main() {
-	vs := []int{-1, 5, 3, 4, 0}
+// func main() {
+// 	vs := []int{-1, 5, 3, 4, 0}
 
-	var cur, head *ListNode
+// 	var cur, head *ListNode
 
-	for _, v := range vs {
-		fmt.Println(v, cur)
-		if head != nil {
-			cur.Next = &ListNode{Val: v}
-			cur = cur.Next
-		} else {
-			head = &ListNode{Val: v}
-			cur = head
-		}
-	}
+// 	for _, v := range vs {
+// 		fmt.Println(v, cur)
+// 		if head != nil {
+// 			cur.Next = &ListNode{Val: v}
+// 			cur = cur.Next
+// 		} else {
+// 			head = &ListNode{Val: v}
+// 			cur = head
+// 		}
+// 	}
 
-	r := sortList(head)
-	for r != nil {
-		fmt.Println(r.Val)
-		r = r.Next
-	}
-}
+// 	r := sortList(head)
+// 	for r != nil {
+// 		fmt.Println(r.Val)
+// 		r = r.Next
+// 	}
+// }
