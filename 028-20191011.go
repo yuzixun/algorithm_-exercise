@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func strStr(haystack string, needle string) int {
 	hSize := len(haystack)
 	nSize := len(needle)
@@ -18,11 +16,4 @@ func strStr(haystack string, needle string) int {
 		}
 	}
 	return -1
-}
-
-func main() {
-	haystack := ""
-	needle := ""
-
-	fmt.Println("strStr is ", strStr(haystack, needle))
 }
