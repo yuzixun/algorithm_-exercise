@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Trie struct {
 	isEnd bool
 	node  map[rune]*Trie
@@ -65,32 +63,32 @@ func (this *Trie) StartsWith(prefix string) bool {
  * param_3 := obj.StartsWith(prefix);
  */
 
-func main() {
-	obj := Constructor()
+// func main() {
+// 	obj := Constructor()
 
-	obj.Insert("app")
-	obj.Insert("apple")
-	obj.Insert("beer")
-	obj.Insert("add")
-	obj.Insert("jam")
-	obj.Insert("rental")
-	// fmt.Println(obj.Search("apps"))
-	// fmt.Println(obj.Search("app"))
-	// fmt.Println(obj.Search("ad"))
-	// fmt.Println(obj.Search("applepie"))
-	// fmt.Println(obj.Search("rest"))
-	// fmt.Println(obj.Search("jan"))
-	// fmt.Println(obj.Search("rent"))
-	// fmt.Println(obj.Search("beer"))
-	// fmt.Println(obj.Search("jam"))
-	// fmt.Println(obj.StartsWith("apps"))
-	// fmt.Println(obj.StartsWith("app"))
-	fmt.Println(obj.StartsWith("ad")) // e
-	// fmt.Println(obj.StartsWith("applepie"))
-	// fmt.Println(obj.StartsWith("rest"))
-	// fmt.Println(obj.StartsWith("jan"))
-	fmt.Println(obj.StartsWith("rent")) // e
-	// fmt.Println(obj.StartsWith("beer"))
-	// fmt.Println(obj.StartsWith("jam"))
+// 	obj.Insert("app")
+// 	obj.Insert("apple")
+// 	obj.Insert("beer")
+// 	obj.Insert("add")
+// 	obj.Insert("jam")
+// 	obj.Insert("rental")
+// 	// fmt.Println(obj.Search("apps"))
+// 	// fmt.Println(obj.Search("app"))
+// 	// fmt.Println(obj.Search("ad"))
+// 	// fmt.Println(obj.Search("applepie"))
+// 	// fmt.Println(obj.Search("rest"))
+// 	// fmt.Println(obj.Search("jan"))
+// 	// fmt.Println(obj.Search("rent"))
+// 	// fmt.Println(obj.Search("beer"))
+// 	// fmt.Println(obj.Search("jam"))
+// 	// fmt.Println(obj.StartsWith("apps"))
+// 	// fmt.Println(obj.StartsWith("app"))
+// 	fmt.Println(obj.StartsWith("ad")) // e
+// 	// fmt.Println(obj.StartsWith("applepie"))
+// 	// fmt.Println(obj.StartsWith("rest"))
+// 	// fmt.Println(obj.StartsWith("jan"))
+// 	fmt.Println(obj.StartsWith("rent")) // e
+// 	// fmt.Println(obj.StartsWith("beer"))
+// 	// fmt.Println(obj.StartsWith("jam"))
 
-}
+// }
