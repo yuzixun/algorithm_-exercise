@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -44,13 +43,13 @@ func calc(target, kCount int, nums, result []int, results *[][]int) {
 	}
 }
 
-func main() {
-	// nums := []int{-1, 0, -5, -2, -2, -4, 0, 1, -2}
-	// target := -9
-	nums := []int{0, 0, 0, 0}
-	target := 0
-	fmt.Println(fourSum(nums, target))
-}
+// func main() {
+// 	// nums := []int{-1, 0, -5, -2, -2, -4, 0, 1, -2}
+// 	// target := -9
+// 	nums := []int{0, 0, 0, 0}
+// 	target := 0
+// 	fmt.Println(fourSum(nums, target))
+// }
 
 // func calc(target, kCount int, nums, result []int, results *[][]int) {
 // 	if len(nums) < kCount || kCount < 2 {
