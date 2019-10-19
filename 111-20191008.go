@@ -1,6 +1,10 @@
 package main
 
-import "math"
+import (
+	"fmt"
+
+	. "../algorithm/treenode"
+)
 
 /**
  * Definition for a binary tree node.
@@ -21,9 +25,23 @@ func minDepth(root *TreeNode) int {
 
 	left := minDepth(root.Left)
 	right := minDepth(root.Right)
+
+	// 如果一边为空，
+	// 计算深度时，需要去计算非空一边的深度
 	if left == 0 || right == 0 {
 		return left + right + 1
 	}
 
-	return int(math.Min(float64(left), float64(right))) + 1
+	if left > right {
+		return right + 1
+	} else {
+		return left + 1
+	}
+}
+
+func main() {
+	// arr := []int{3, 9, 20, NULL, NULL, 15, 7}
+	arr := []int{1, 2}
+
+	fmt.Println(minDepth(GenerateTreeRoot(arr)))
 }

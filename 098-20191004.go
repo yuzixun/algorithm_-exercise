@@ -1,5 +1,7 @@
 package main
 
+import . "../algorithm/treenode"
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -9,11 +11,11 @@ package main
  * }
  */
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Val   int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 func isValidBST(root *TreeNode) bool {
 	MIN, MAX := -1<<63, 1<<63-1
