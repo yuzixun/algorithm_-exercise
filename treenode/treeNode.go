@@ -1,5 +1,7 @@
 package treenode
 
+import "math"
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -9,7 +11,7 @@ package treenode
  * }
  */
 
-var NULL = -2 ^ 32 - 1
+var NULL = math.Pow(2, 32) - 1
 
 type TreeNode struct {
 	Val   int

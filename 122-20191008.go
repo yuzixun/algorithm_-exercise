@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-func maxProfit(prices []int) int {
+func maxProfit1(prices []int) int {
 	var profit int
 	size := len(prices)
 	for i := 0; i < size-1; i++ {
