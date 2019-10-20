@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	. "../algorithm/treenode"
 )
 
@@ -37,11 +35,4 @@ func minDepth(root *TreeNode) int {
 	} else {
 		return left + 1
 	}
-}
-
-func main() {
-	// arr := []int{3, 9, 20, NULL, NULL, 15, 7}
-	arr := []int{1, 2}
-
-	fmt.Println(minDepth(GenerateTreeRoot(arr)))
 }
